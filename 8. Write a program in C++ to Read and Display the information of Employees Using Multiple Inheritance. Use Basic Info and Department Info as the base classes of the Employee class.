@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+class basic_info
+{
+protected:
+    char name [30];
+    int Emp_Id;
+   
+public:
+     basic_info()
+    {
+       cout<<"Enter name of the employee: " ;
+       cin>>name;
+       cout<<"Enter the employee ID: " ;
+       cin>>Emp_Id;    
+    }
+   
+};
+
+class dept_info
+{
+protected:
+    char dept_name [15];
+    char work_assign[50];
+   
+public:
+    dept_info()
+    {
+       cout<<"Enter name of the Department: " ;
+       cin>> dept_name;
+       cout<<"Enter the work assignment: " ;
+       cin>>work_assign;    
+    }    
+};
+
+class employeeinfo: public basic_info, public dept_info
+{
+public:
+    employeeinfo()
+    {
+        cout << "\nEmployee information entered successfully.\n";
+    }
+     void Display_info()
+    {
+        cout << "\nEmployee Basic info is:\n";
+        basic_info();
+        cout << "\nEmployee dept info is:\n";
+        dept_info();
+    }
+};
+
+
+int main()
+{  
+    int i,n;
+    employeeinfo Emp[50];
+    cout<<"Enter no. of Employee :" ;
+    cin>> n;
+
+    for (int i = 0; i < n; i++)
+    {
+        Emp[i].Display_info();
+    }
+
+    return 0;
+}   
