@@ -1,0 +1,78 @@
+PART A 
+
+#include <iostream>
+using namespace std;
+int main() {
+    int i , sum = 0 ;
+    for (i = 0 ; i<=50 ; i++)
+    {
+        if( i%2 == 0)
+          sum += i;
+    }
+    cout<<"the sum of first 50 even numbers is :"<<sum;
+
+    return 0;
+}
+
+
+
+
+PART B 
+
+#include <iostream>
+using namespace std;
+class NumberSum
+{
+    private:
+    int i , start , end , oddsum = 0,evensum = 0;
+   
+    public:
+    void range();
+    void sum();
+    int geteven_sum();
+    int getodd_sum();
+};
+
+void NumberSum :: range()
+{
+    cout<<"Enter the starting number : ";
+    cin>>start;
+    cout<<"Enter the ending number : ";
+    cin>>end;
+}
+
+void NumberSum :: sum()
+ {
+        for (i = start ; i <= end ; i++)
+    {
+        if(i%2 == 0)
+          evensum += i;
+        else
+          oddsum += i;
+    }
+ }
+ 
+ int NumberSum :: geteven_sum()
+ {
+     return evensum;
+ }
+ 
+ int NumberSum :: getodd_sum()
+ {
+     return oddsum;
+ }
+ 
+ void display (NumberSum N)
+ {
+     cout << "Sum of even numbers in the given range is :  " << N.geteven_sum();
+     cout << "\nSum of odd numbers in the given range is : " << N.getodd_sum();
+ }
+
+int main()
+{
+   NumberSum N;
+   N.range();
+   N.sum();
+   display(N);
+   return 0;
+}
