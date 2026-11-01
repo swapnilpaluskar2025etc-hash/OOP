@@ -1,0 +1,81 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+class complex
+{
+  private:
+     int real , imag ;
+     
+  public:
+    void display();
+    void read();
+    complex add(complex);
+    complex subtract(complex);
+    complex multiply(complex);
+};
+ 
+void complex::read()
+{
+  cout << "\nEnter the real part:  ";
+  cin >> real ;
+  cout << "Enter the imaginary part:  ";
+  cin >> imag ;
+}
+
+void complex::display()
+{
+    if (imag >= 0)
+      cout << real << " + " << imag << "i" ;
+    else
+      cout << real << " - " << imag << "i" ;
+}
+
+complex complex::add(complex c1)
+{
+    complex sum ;
+    sum.real = real + c1.real;
+    sum.imag = imag + c1.imag;
+    return sum;
+}
+
+complex complex::subtract(complex c1)
+{
+    complex differnce ;
+    differnce.real = real - c1.real;
+    differnce.imag = imag - c1.imag;
+    return differnce;
+}
+
+complex complex::multiply(complex c1)
+{
+    complex product;
+    product.real = (real* c1.real) - (imag* c1.imag);
+    Product.imag c = (real* c1.imag) + (imag* c1.real);
+    return product;
+}
+
+int main()
+{
+    complex c1 , c2 , c3 ;
+    cout << "Enter first complex number " ;
+    c1.read();
+    cout << "\nEnter second complex number : " ;
+    c2.read();
+   
+    cout << "\nFirst complex number : " ;
+    c1.display();
+    cout << "\nSecond complex number : " ;
+    c2.display();
+   
+    c3 = c1.add(c2);
+    cout << "\nAddition : " ;
+    c3.display();
+   
+    c3 = c1.subtract(c2);
+    cout << "\nSubtraction : " ;
+    c3.display();
+   
+    c3 = c1.multiply(c2);
+    cout << "\nMultiplication : " ;
+    c3.display();
+}
