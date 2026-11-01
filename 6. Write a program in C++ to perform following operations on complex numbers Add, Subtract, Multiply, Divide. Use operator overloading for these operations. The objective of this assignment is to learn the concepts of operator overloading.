@@ -1,0 +1,99 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+class Complex
+{
+private:
+ double real, img;
+public:
+ void display();
+ void read();
+ Complex operator+(Complex);
+ Complex operator-(Complex);
+ Complex operator*(Complex);
+ Complex operator/(Complex);
+};
+
+void Complex::read()
+{
+ cout << "Enter real part: ";
+ cin >> real;
+ cout << "Enter imaginary part: ";
+ cin >> img;
+}
+
+void Complex::display()
+{
+ cout << real << " + " << img << " i " << endl;
+}
+
+Complex Complex::operator+(Complex C1)
+{
+ Complex Sum;
+ Sum.real = real + C1.real;
+ Sum.img = img + C1.img;
+    return Sum;
+}
+
+Complex Complex::operator-(Complex C1)
+{
+ Complex Difference;
+ Difference.real = real - C1.real;
+ Difference.img = img - C1.img;
+ return Difference;
+}
+
+Complex Complex::operator*(Complex C1) 
+{
+    Complex Product;
+    Product.real = (real * C1.real) - (img * C1.img);
+    Product.img = (real * C1.img) + (img * C1.real);
+    return Product;
+}
+
+Complex Complex::operator/(Complex C1) 
+{
+    Complex Quotient;
+    double denominator = (C1.real * C1.real) + (C1.img * C1.img);
+
+    if (denominator == 0) 
+    {
+        cout << "Error: Division by zero!" << endl;
+        Quotient.real = 0;
+        Quotient.img = 0;
+        return Quotient;
+    }
+    Quotient.real = ((real * C1.real) + (img * C1.img)) / denominator;
+    Quotient.img = ((img * C1.real) - (real * C1.img)) / denominator;
+    return Quotient;
+}
+
+
+
+int main() {
+    Complex C1, C2, C3, C4, C5, C6;
+
+    cout << "Enter first complex number:" << endl;
+    C1.read();
+
+    cout << "Enter second complex number:" << endl;
+    C2.read();
+
+    cout << "Addition: ";
+    C3 = C1 + C2;
+    C3.display();
+
+    cout << "Subtraction: ";
+    C4 = C1 - C2;
+    C4.display();
+
+    cout << "Multiplication: ";
+    C5 = C1 * C2;
+    C5.display();
+
+    cout << "Division: ";
+    C6 = C1 / C2;
+    C6.display();
+
+    return 0;
+}
