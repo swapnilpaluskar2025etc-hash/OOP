@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+// Base class
+class Shape {
+public:
+// Virtual function
+virtual void draw() {
+cout << "Drawing a shape." << endl;
+}
+virtual ~Shape() {} // Virtual destructor
+};
+// Derived class 1
+class Circle : public Shape {
+public:
+// Override the virtual function
+void draw() override {
+cout << "Drawing a circle." << endl; }};
+// Derived class 2
+class Rectangle : public Shape {
+public:
+// Override the virtual function
+void draw() override {
+cout << "Drawing a rectangle." << endl; }};
+int main() {
+// Create objects
+Shape shape;
+Circle circle;
+Rectangle rectangle;
+// Call the virtual function
+shape.draw();
+circle.draw();
+rectangle.draw();
+// Using base class pointers
+Shape* shapePtr = &circle;
+shapePtr->draw();
+shapePtr = &rectangle;
+shapePtr->draw();
+return 0;
+}
