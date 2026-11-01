@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+void enterarray(int a[] , int n)
+{
+   cout << "Enter array a : ";
+    for ( int i = 0 ; i < n ; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void display(int a[] , int n)
+{
+    for ( int i = 0 ; i < n ; i++)
+    {
+        cout << "\n" << a[i] ;
+    }
+}
+
+void sortascending(int a[] , int n)
+{
+    for ( int i = 0 ; i < n-1 ; i++)
+    {
+        for ( int j = 0 ; j < n-i-1 ; j++)
+        {
+            if ( a[j] > a[j+1])
+             swap( a[j] , a[j+1]);
+        }
+    }
+}
+
+void sortdescending(int a[] , int n)
+{
+    for ( int i = 0 ; i < n-1 ; i++)
+    {
+        for ( int j = 0 ; j < n-i-1 ; j++)
+        {
+            if ( a[j] < a[j+1])
+             swap( a[j] , a[j+1]);
+        }
+    }
+}
+
+void swap(int &x, int &y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+int main()
+{
+    int a[100] , n;
+    cout << "Enter number of elements (max 100) : ";
+    cin >> n;
+    enterarray(a , n);
+    cout << "The original array is : ";
+    display(a , n);
+    sortascending(a , n);
+    cout << "\nThe sorted array is (ascending) : ";
+    display(a , n);
+    sortdescending(a , n);
+    cout << "\nThe sorted array is (descending) : ";
+    display(a , n);
+   
+    return 0;
+}
